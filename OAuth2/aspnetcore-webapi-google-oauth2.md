@@ -44,6 +44,3 @@ public AccountsController()
 ## 참조
 
 [Sign In Using ID Tokens](https://developers.google.com/identity/one-tap/web/idtoken-auth)
-```
-
-```
