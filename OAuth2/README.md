@@ -36,6 +36,12 @@ OAuth2는 인증 서버와 클라이언트 간 통신에 HTTPS를 사용하기�
 
 ## Register as a client
 
+Since you want to retrieve data from a resource server using OAuth2, you have to register as a client of the authorization server.
+
+Each provider is free to allow this by the method of his choice. The protocol only defines the parameters that must be specified by the client and those to be returned by the authorization server.
+
+Here are the parameters (they may differ depending of the providers):
+
 ### Client registration
 
 ### Authorization server response
