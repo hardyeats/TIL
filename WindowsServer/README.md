@@ -11,3 +11,9 @@ https://blogs.msdn.microsoft.com/friis/2016/07/25/disabling-tls-1-0-on-your-wind
 
 
 https://support.microsoft.com/en-us/help/187498/how-to-disable-pct-1-0-ssl-2-0-ssl-3-0-or-tls-1-0-in-internet-informat
+
+
+
+sql server가 문제가 될 수 있다.
+
+https://support.microsoft.com/ko-kr/help/3135244/tls-1-2-support-for-microsoft-sql-server
