@@ -17,3 +17,9 @@ https://support.microsoft.com/en-us/help/187498/how-to-disable-pct-1-0-ssl-2-0-s
 sql server가 문제가 될 수 있다.
 
 https://support.microsoft.com/ko-kr/help/3135244/tls-1-2-support-for-microsoft-sql-server
+
+---
+
+- PUT, DELETE 메소드가 허용되지 않는다.
+
+웹 서버에서 WebDAV를 비활성화 시켜보자.
