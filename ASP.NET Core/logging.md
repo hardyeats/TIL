@@ -1,0 +1,1 @@
+https://mitchelsellers.com/blogs/2017/10/09/real-world-aspnet-core-logging-configuration
