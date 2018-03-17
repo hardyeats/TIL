@@ -8,7 +8,7 @@
 
 애플리케이션의 서로 다른 부분들은 캡슐화를 써서 서로를 떨어뜨려 놔야 한다. Application components and layers should be able to adjust their internal implementation without breaking their collaborators as long as external contracts are not violated. 캡슐화를 적절히 사용하면, 애플리케이션을 설계할 때 느슨한 결합(loose coupling)과 모듈성(modularity)을 달성하는 데 도움을 준다. 동일한 인터페이스가 유지되는 한, 객체와 패키지가 얼마든지 다른 구현으로 대체될 수 있기 때문이다.
 
-In classes, encapsulation is achieved by limiting outside access to the class's internal state. If an outside actor wants to manipulate the state of the object, it should do so through a well-defined function (or property setter), rather than having direct access to the private state of the object. Likewise, application components and applications themselves should expose well-defined interfaces for their collaborators to use, rather than allowing their state to be modified directly. This frees the application's internal design to evolve over time without worrying that doing so will break collaborators, so long as the public contracts are maintained.
+클래스를 캡슐화 하려면, 바깥에서 클래스 내부 상태에 접근하는 것을 제한하면 된다. If an outside actor wants to manipulate the state of the object, it should do so through a well-defined function (or property setter), rather than having direct access to the private state of the object. Likewise, application components and applications themselves should expose well-defined interfaces for their collaborators to use, rather than allowing their state to be modified directly. This frees the application's internal design to evolve over time without worrying that doing so will break collaborators, so long as the public contracts are maintained.
 
 
 
