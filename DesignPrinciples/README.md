@@ -10,6 +10,36 @@
 
 클래스를 캡슐화 하려면, 바깥에서 클래스 내부 상태에 접근하는 것을 제한하면 된다. If an outside actor wants to manipulate the state of the object, it should do so through a well-defined function (or property setter), rather than having direct access to the private state of the object. Likewise, application components and applications themselves should expose well-defined interfaces for their collaborators to use, rather than allowing their state to be modified directly. This frees the application's internal design to evolve over time without worrying that doing so will break collaborators, so long as the public contracts are maintained.
 
+## Dependency Inversion
+
+The direction of dependency within the application should be in the direction of abstraction, not implementation details. Most applications are written such that compile-time dependency flows in the direction of runtime execution. This produces a direct dependency graph. That is, if module A calls a function in module B, which calls a function in module C, then at compile time A will depend on B which will depend on C, as shown in Figure 4-1.
+
+![img](https://docs.microsoft.com/en-us/dotnet/standard/modern-web-apps-azure-architecture/media/image4-1.png)
+
+
+
+## Explicit Dependencies
+
+
+
+## Single Responsibility
+
+
+
+## Don't Repeat Yourself (DRY)
+
+
+
+## Persistence Ignorance
+
+
+
+## Bounded Context
+
+
+
+
+
 
 
 ## References
