@@ -4,6 +4,14 @@ https://stackoverflow.com/questions/30042791/entity-framework-savechanges-vs-sav
 
 
 
+## 관계 데이터(navigation property)를 불러오지 못할 때
+
+https://stackoverflow.com/questions/42327515/ef-core-returns-null-relations-untill-direct-access
+
+
+
+
+
 ## PK 를 바꿔야 할 때 마이그레이션 코드 짜는 법
 
 ID가 GUID 문자열인데,  이게 불편해서 타입을 `long`으로 바꾸려는 상황이다.
