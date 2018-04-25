@@ -29,3 +29,22 @@ OK
 
 https://gigi.nullneuron.net/gigilabs/setting-up-a-connection-with-stackexchange-redis/
 
+- 위의 포스팅을 참조해, 레디스 연결 객체를 싱글턴 패턴으로 생성한다.
+
+```c#
+public class FooController : Controller {
+    
+    private readonly IDatabase _redisDb;
+
+    private static Lazy<ConnectionMultiplexer> conn = new Lazy<ConnectionMultiplexer>(
+        () => ConnectionMultiplexer.Connect("localhost"));
+    
+    public FooController()
+    {
+        _redisDb = SafeConn.GetDatabase();
+    }
+}
+```
+
+
+
