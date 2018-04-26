@@ -37,7 +37,15 @@ public class FooController : Controller {
     private readonly IDatabase _redisDb;
 
     private static Lazy<ConnectionMultiplexer> conn = new Lazy<ConnectionMultiplexer>(
-        () => ConnectionMultiplexer.Connect("localhost"));
+            () => ConnectionMultiplexer.Connect($"localhost, password={Environment.GetEnvironmentVariables()["password"]}"));
+    
+    private static ConnectionMultiplexer SafeConn
+    {
+        get
+        {
+            return conn.Value;
+        }
+    }
     
     public FooController()
     {
