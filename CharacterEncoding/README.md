@@ -55,3 +55,5 @@ function exportCsvFileFromJson(headers, items, fileTitle) {
 ## 참고
 
 [위키문서 : 바이트 순서 표식](https://ko.wikipedia.org/wiki/%EB%B0%94%EC%9D%B4%ED%8A%B8_%EC%88%9C%EC%84%9C_%ED%91%9C%EC%8B%9D)
+
+[Export JSON to CSV file using Javascript (in the browser)](https://medium.com/@danny.pule/export-json-to-csv-file-using-javascript-a0b7bc5b00d2)
