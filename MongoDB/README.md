@@ -40,3 +40,10 @@ mongo --port 27017 -u "myUserAdmin" -p "abc123" --authenticationDatabase "admin"
 mongod --auth --dbpath=D:\mongodb --logpath=D:\mongodb\log.txt --install
 ```
 
+## C# Driver - System.FormatException
+
+```
+System.FormatException: The GuidRepresentation for the reader is CSharpLegacy, which requires the binary sub type to be UuidLegacy, not UuidStandard.
+```
+
+`MongoDB.Driver`를 2.5 이상으로 업데이트 한다.
