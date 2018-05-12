@@ -12,4 +12,6 @@
 
 식당에 들어갔을 때를 떠올려 보자. 일단 일행이 몇 명인지를 알려주면, 종업원은 적당한 크기의 빈 테이블로 우리를 안내해 줄 것이다. 만약 일행 중 지각한 사람이 있다면, 종업원에게 우리가 어떤 테이블에 앉아있는지 물어볼 수 있을 것이다.
 
-힙에 있는 데이터에 접근하는 것은 스택에 있는 데이터에 접근하는 것보다 느리다. 왜냐하면 포인터를 따라가야 하기 때문이다. 비유를 계속 이어나가 보자면,  서버가 수많은 테이블로부터 주문을 받아야 하는 식당이라고 생각해 보자.
+힙에 있는 데이터에 접근하는 것은 스택에 있는 데이터에 접근하는 것보다 느리다. 왜냐하면 포인터를 따라가야 하기 때문이다. 비유를 계속 이어나가 보자면,  서버가 수많은 테이블로부터 주문을 받아야 하는 식당이라고 생각해 보자. It’s most efficient to get all the orders at one table before moving on to the next table. Taking an order from table A, then an order from table B, then one from A again, and then one from B again would be a much slower process. By the same token, a processor can do its job better if it works on data that’s close to other data (as it is on the stack) rather than farther away (as it can be on the heap). Allocating a large amount of space on the heap can also take time.
+
+당신의 코드가 어떤 함수를 호출할 때, 그 함수로 값들(거기엔 힙에 있는 데이터를 가리키는 포인터들이 포함될 수도 있을 것이다)이 전달되고, 
