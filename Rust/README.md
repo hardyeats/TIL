@@ -14,4 +14,6 @@
 
 힙에 있는 데이터에 접근하는 것은 스택에 있는 데이터에 접근하는 것보다 느리다. 왜냐하면 포인터를 따라가야 하기 때문이다. 비유를 계속 이어나가 보자면,  서버가 수많은 테이블로부터 주문을 받아야 하는 식당이라고 생각해 보자. It’s most efficient to get all the orders at one table before moving on to the next table. Taking an order from table A, then an order from table B, then one from A again, and then one from B again would be a much slower process. By the same token, a processor can do its job better if it works on data that’s close to other data (as it is on the stack) rather than farther away (as it can be on the heap). Allocating a large amount of space on the heap can also take time.
 
-당신의 코드가 어떤 함수를 호출할 때, 그 함수로 값들(거기엔 힙에 있는 데이터를 가리키는 포인터들이 포함될 수도 있을 것이다)이 전달되고, 
+당신의 코드가 어떤 함수를 호출할 때, 그 함수로 값들(거기엔 힙에 있는 데이터를 가리키는 포인터들이 포함될 수도 있을 것이다)이 전달되고, 함수의 지역 변수들이 스택으로 푸시된다. 그리고 함수가 끝났을 때 그 값들은 스택에서 팝된다.
+
+코드의 어느 부분이 힙에 있는 어느 데이터를 쓰고 있는지 파악하는 것, 힙에서 데이터를 복제하는 걸 최소화하는 것, 힙에 있는 사용하지 않는 데이터를 지워서 공간을 아끼는 것은 모두 **소유권(ownership)**이란 개념이 다루는 문제다. 소유권을 이해하게 되면 스택과 힙에 대해 자주 고려하지 않아도 된다. 하지만 힙데이터를 잘 다루기 위해 소유권이 등장했다는 사실을 알면, 소유권이 어떻게 작동하고 무슨 일을 하는지 이해하는 데 도움이 된다.
