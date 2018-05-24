@@ -20,3 +20,4 @@ Unable to access the artifact with Amazon S3 object key '****' located in the Am
 
 `CodePipeline`에서 `CodeDeploy`를 통해 스테이징할 때 발생한 실패 메시지.
 
+AppSpec 파일을 작성할 것.
