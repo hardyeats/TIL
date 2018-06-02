@@ -22,3 +22,17 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 ```
 
 `UseCors()`는 `UseMvc()`보다 **반드시** 앞서야 함.
+
+
+
+## 우분투 16.04에서 실행
+
+```bash
+Failed to load ▒▒▒, error: libunwind.so.8: cannot open shared object file: No such file or dire              ctory
+Failed to bind to CoreCLR at '/home/ubuntu/ServicesTester/libcoreclr.so'
+```
+
+```bash
+$ sudo apt-get install -y libunwind-dev
+```
+
