@@ -46,3 +46,33 @@ System.TypeInitializationException: The type initializer for 'System.Net.Http.Cu
 $ sudo apt-get install liblttng-ust0
 ```
 
+## 우분투 16.04에서 실행3
+
+```bash
+/etc/systemd/system$ sudo nano myapp.service
+```
+
+myapp.service
+
+```bash
+[Unit]
+Description=우분투에서 실행하는 닷넷코어 앱
+
+[Service]
+WorkingDirectory=/var/www/aspnetcore
+ExecStart=/usr/bin/dotnet /var/www/aspnetcore/myapp.dll
+Restart=always
+RestartSec=10 # Restart service after 10 seconds if dotnet service crashes
+SyslogIdentifier=myapp
+User=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=api_key=XXXXXXXXXXXXX # 환경변수를 이곳에 지정
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```bash
+$ sudo service myapp start
+```
+
