@@ -12,3 +12,17 @@
 - [작업] - [거부 항목 추가...] - [IP 주소 범위(R)]에 `0.0.0.0`  입력
 - [작업] - [거부 항목 추가...] - [마스크 또는 접두사(M)]에 `0.0.0.0`  입력
 - [작업] - [정렬된 목록 보기...]에서 허용 아이피가 최상단에 있는 것을 확인
+
+## IIS에 배포한 ASP.NET Core 앱의 로그 활성화
+
+- 루트 폴더의 `web.config`파일을 열어본다.
+
+```xml
+<aspNetCore processPath="dotnet" arguments=".\aspnetcore.dll" stdoutLogEnabled="false" stdoutLogFile=".\logs\stdout" />
+```
+
+- `stdoutLogEnabled` 속성의 값을 `true`로 바꾼다.
+- `stdoutLogFile` 속성의 값이 `.\logs\stdout`이므로, 로그 파일은 루트 폴더의 하위 폴더인 `logs`폴더에 생성될 것이며 그 파일의 이름은 `stdout_9316_201861123128.log`같은 식이 될 것이다.
+- 그런데 IIS는 직접 폴더를 만들지 못하므로, 사용자가 `logs`폴더를 만들어 줘야 한다.]
+- 또한, `IIS_IUSRS`그룹에게  `logs`폴더의 쓰기 권한을 줘야 한다.
+
