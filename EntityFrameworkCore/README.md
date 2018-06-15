@@ -84,3 +84,9 @@ dotnet ef database update
 **물론 이대로 진행하면, 기존에 저장되어 있던 `Id` 컬럼의 내용은 모두 지워지게 된다.**
 
 아직 테스트 기간 중 로컬 DB에서 진행한 과정이기 때문에 문제가 없었던 것.
+
+
+
+## The current CSharpHelper cannot scaffold literals of type 'Microsoft.EntityFrameworkCore.Metadata.Internal.DirectConstructorBinding'. Configure your services to use one that can.
+
+ASP.NET Core의 버전과 Entity Framework Core의 버전이 불일치할 때 발생. 위 상황은 `Microsoft.AspNetCore.All`의 버전이 아직 2.0.5인데, `Npgsql.EntityFrameworkCore.PostgreSQL`의 버전을 2.0.2에서 2.1.0으로 올렸을 때 벌어진 일이다.
