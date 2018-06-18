@@ -76,3 +76,19 @@ WantedBy=multi-user.target
 $ sudo service myapp start
 ```
 
+## System.InvalidOperationException: The constraint entry 'version' - 'apiVersion' on the route 'v{version:apiVersion}/Contracts' could not be resolved by the constraint resolver of type 'DefaultInlineConstraintResolver'
+
+의존하는 프로젝트에서 `Microsoft.AspNetCore.Mvc.Versioning` 모듈을 사용하고 있는데, 정작 자신은 이 모듈을 사용하고 있지 않을 때 발생.
+
+우선 현 프로젝트에 `Microsoft.AspNetCore.Mvc.Versioning`를 설치한 후, `Startup.cs`에 다음 코드를 추가하자.
+
+```c#
+// This method gets called by the runtime. Use this method to add services to the container.
+public void ConfigureServices(IServiceCollection services)
+{
+    // ...
+    services.AddApiVersioning(opt => opt.AssumeDefaultVersionWhenUnspecified = true);
+    services.AddMvc();
+}
+```
+
