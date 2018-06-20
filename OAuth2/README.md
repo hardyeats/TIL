@@ -34,6 +34,24 @@ OAuth2에는 다음의 4가지 역할(role)이 등장한다.
 
 OAuth2는 인증 서버와 클라이언트 간 통신에 HTTPS를 사용하기를 요구한다. 둘 간에 민감한 데이터가 오고 가기 때문이다.
 
+## The OAuth flow
+
+소비자(Consumer)란 OAuth 토큰을 요청하는 앱이다. 서비스 제공자(Service Provider)는 사용자에게 권한을 부여하고 토큰을 발급하는 앱이다.
+
+In this blog post I will demonstrate how to configure authentication with GitHub, so for the sake of this blog post think of GitHub as the Service Provider.
+
+Before anything can be done, you will need to register an application with the Service Provider. Typically you will need to specify a name for the application and a **redirect URI**. Once an application is registered, the Service Provider will provide a **client ID** and a **client secret** which is used during the authentication and token request process.
+
+As for the actual OAuth 2 flow, it looks as follows:
+
+![img](https://d33wubrfki0l68.cloudfront.net/f30d5ac10ca90445be13eea4338d2bbfb18c2ac5/0d726/assets/images/2015-04-14-introduction-to-aspnet5-generic-oauth-provider/oauth-flow.png) 
+
+1. 소비자가, 어느 사용자에게 권한을 부여해달라고 서비스 제공자의 **인증 엔드포인트**에 요청함.
+2. The Service Provider authenticates the user and prompts them whether to authorize the Consumer to access their information.
+3. 사용자가 소비자를 승인하면, the Service Provider redirects back to the **redirect URI** on the Consumer’s website with a temporary access code.
+4. The Consumer calls the **token endpoint** on the Service Provider website to exchange the code for a more permanent access token.
+5. The Service Provider grants an access token which can be used to authenticate subsequent requests to protected resources.
+
 ## Register as a client
 
 Since you want to retrieve data from a resource server using OAuth2, you have to register as a client of the authorization server.
@@ -61,3 +79,5 @@ OAuth2 defines 4 grant types depending on the location and the nature of the cli
 ## 참고
 
 [Understanding OAuth2](http://www.bubblecode.net/en/2016/01/22/understanding-oauth2/)
+
+[Authenticate with OAuth 2.0 in ASP.NET Core 2.0](https://www.jerriepelser.com/blog/authenticate-oauth-aspnet-core-2/)
