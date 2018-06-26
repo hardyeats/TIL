@@ -92,3 +92,6 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+## JsonReaderException: Error reading JObject from JsonReader. Path '', line 0, position 0.
+
+`.csproj`파일을 열어 `UserSecretsId` 요소를 제거 한다. 혹은 프로젝트를 우클릭 -> `Manage User Secrets` 클릭해 JSON 파일을 수정한다.
