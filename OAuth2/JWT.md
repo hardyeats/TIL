@@ -17,6 +17,28 @@ If you look at the RS256 samples, you will see that you don't need to configure 
 
 
 
+---
+
+In cryptography there are two types of algorithms used:
+
+**Symmetric algorithms**
+
+A single key is used to encrypt data. When encrypted with the key, the data can be decrypted using the same key. If, for example, Mary encrypts a message using the key "my-secret" and sends it to John, he will be able to decrypt the message correctly with the same key "my-secret".
+
+**Asymmetric algorithms**
+
+Two keys are used to encrypt and decrypt messages. While one key(public) is used to encrypt the message, the other key(private) can only be used to decrypt it. So, John can generate both public and private keys, then send only the public key to Mary to encrypt her message. The message can only be decrypted using the private key.
+
+**HS256 and RS256 Scenario**
+
+These algorithms are NOT used to encrypt/decryt data. Rather they are used to verify the origin or the authenticity of the data. When Mary needs to send an open message to Jhon and he needs to verify that the message is surely from Mary, HS256 or RS256 can be used.
+
+HS256 can create a signature for a given sample of data using a single key. When the message is transmitted along with the signature, the receiving party can use the same key to verify that the signature matches the message.
+
+RS256 uses pair of keys to do the same. A signature can only be generated using the private key. And the public key has to be used to verify the signature. In this scenario, even if Jack finds the public key, he cannot create a spoof message with a signature to impersonate Mary.
+
+
+
 ## References
 
 [RS256 vs HS256: What's the difference?](https://stackoverflow.com/questions/39239051/rs256-vs-hs256-whats-the-difference)
