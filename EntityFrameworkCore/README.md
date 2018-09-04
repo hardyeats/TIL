@@ -90,3 +90,37 @@ dotnet ef database update
 ## The current CSharpHelper cannot scaffold literals of type 'Microsoft.EntityFrameworkCore.Metadata.Internal.DirectConstructorBinding'. Configure your services to use one that can.
 
 ASP.NET Core의 버전과 Entity Framework Core의 버전이 불일치할 때 발생. 위 상황은 `Microsoft.AspNetCore.All`의 버전이 아직 2.0.5인데, `Npgsql.EntityFrameworkCore.PostgreSQL`의 버전을 2.0.2에서 2.1.0으로 올렸을 때 벌어진 일이다.
+
+
+
+## Unable to create an object of type ‘SomeDbContext’. Add an implementation of ‘IDesignTimeDbContextFactory<>’ to the project, or see <https://go.microsoft.com/fwlink/?linkid=851728> for additional patterns supported at design time.
+
+클래스 라이브러리 프로젝트에서 `dotnet ef migrations` 등의 명령을 이용해 마이그레이션을 추가하고 데이터베이스를 업데이트할 때 발생하는 에러다. 지시처럼 프로젝트에 `IDesignTimeDbContextFactory`의 구현체를 추가하면 해결된다. 다음 코드를 DB컨텍스트 코드가 있는 Data 폴더에 같이 넣어 두었다.
+
+```csharp
+public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<SomeDbContext>
+{
+    public SomeDbContext CreateDbContext(string[] args)
+    {
+            var builder = new DbContextOptionsBuilder<SomeDbContext>();
+            string connectionString;
+            switch (Util.GetHostingEnvironment())
+            {
+                case AspnetEnvironment.Development:
+                    connectionString = Util.GetDbConnectionString("dev/Some/MySql");
+                    break;
+                case AspnetEnvironment.Staging:
+                    connectionString = Util.GetDbConnectionString("stage/Some/MySql");
+                    break;
+                case AspnetEnvironment.Production:
+                    connectionString = Util.GetDbConnectionString("prod/Some/MySql");
+                    break;
+                default:
+                    throw new ArgumentException("Invalid hosting enviroment variable");
+            }
+            builder.UseMySql(connectionString);
+            return new SomeDbContext(builder.Options);
+    }
+}
+```
+
