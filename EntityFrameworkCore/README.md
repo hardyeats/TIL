@@ -124,3 +124,15 @@ public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<SomeDbCont
 }
 ```
 
+
+
+## The specified framework version '2.1' could not be parsed. The specified framework 'Microsoft.NETCore.App', version '2.1' was not found.
+`.cproj` 파일에 다음 구문을 추가한다.
+
+```xml
+<PropertyGroup>
+  <TargetFramework>netcoreapp2.1</TargetFramework>
+  <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+</PropertyGroup>
+```
+
