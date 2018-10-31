@@ -136,3 +136,12 @@ public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<SomeDbCont
 </PropertyGroup>
 ```
 
+
+
+## 원시 SQL 명령 내리기
+
+```c#
+_context.Database.ExecuteSqlCommand("SELECT setval('\"Foo_Id_seq\"', 20)");
+```
+
+위의 명령은 Foo의 현재 시퀀스 값을 20으로 만든다. 따라서 다음에 삽입될 행의 ID 값은 21이 된다. 시퀀스 명을 쌍따옴표("")로 감싸주지 않으면 모두 소문자로 변환된다는 점을 주의하자.
