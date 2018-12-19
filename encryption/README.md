@@ -47,6 +47,14 @@ DES의 안전성에 문제가 제기됨에 따라 2000년 새로운 미국 표�
 
 
 
+# Envelope Encryption
+
+암호화 데이터의 보안은, 그 데이터를 해독할 수 있는 데이터 키를 잘 보호하는 데에 달려있다. 데이터 키를 보호하는 베스트 프랙티스 중 하나는 데이터 키 자체를 암호화하는 것이다. 그러자면 또 하나의 암호화 키가 필요한데, 이를 마스터 키(master key)라고 부른다. 마스터 키를 이용해 데이터 키들을 암호화하는 일을 **envelope encryption**이라고 부른다.
+
+- 데이터 키 보호 : 데이터 키가 이미 암호화 되어 있으므로, 이를 어디에 보관할 지 고민할 필요가 없다.
+- 데이터 키만 재암호화 하면 된다.
+- 여러 알고리즘의 장점을 동시에 취할 수 있음 : 예를 들어 raw data에는 대칭키 암호화를 사용하고 데이터 키에는 공개키 암호화를 사용할 수 있음.
+
 # References
 
 https://seed.kisa.or.kr/iwt/ko/intro/EgovHistory.do
@@ -54,3 +62,5 @@ https://seed.kisa.or.kr/iwt/ko/intro/EgovHistory.do
 https://ko.wikipedia.org/wiki/%EC%BC%80%EB%A5%B4%ED%81%AC%ED%98%B8%ED%94%84%EC%8A%A4%EC%9D%98_%EC%9B%90%EB%A6%AC
 
 https://seed.kisa.or.kr/iwt/ko/intro/EgovCryptographic.do
+
+[How the AWS Encryption SDK Works](https://docs.aws.amazon.com/ko_kr/encryption-sdk/latest/developer-guide/how-it-works.html#envelope-encryption)
